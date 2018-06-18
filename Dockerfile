@@ -14,7 +14,7 @@ FROM arm64v8/opensuse:42.3
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install MongoDB & remove proxy.
-RUN zypper in mongodb-server
+RUN zypper in mongodb-server --non-interactive
     
 # Configuration.
 RUN mkdir -p /data/db /data/configdb \
