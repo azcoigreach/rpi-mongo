@@ -16,14 +16,12 @@ This repository contains Dockerfile of [MongoDB](http://www.mongodb.org/) for [R
 
 3. Alternatively, you can build an image from Dockerfile (**In you Raspberry Pi**):
 
-    1. Update the proxy settings for apt-get in `10proxy`.
-
-    2. `docker build -t="azcoigreach/rpi-mongo" github.com/azcoigreach/rpi-mongo`
+    1. `docker build -t="azcoigreach/rpi-mongo" github.com/azcoigreach/rpi-mongo`
 
 ### Usage
 
 1. Run `mongod`:
 
-    `docker run -it -p 27017:27017 --name mongodb azcoigreach/rpi-mongo`
+    `docker run -it -p 27017:27017 -p 28017:28017 -v /data/db:/data/db -v /data/dbconfig:/data/dbconfig --restart unless-stopped --name mongodb azcoigreach/rpi-mongo`
 
 2. For more usage details, please refer to [mongo](https://hub.docker.com/_/mongo/).
