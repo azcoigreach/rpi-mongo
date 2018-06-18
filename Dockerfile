@@ -14,7 +14,7 @@ FROM aarch64/opensuse:42.2
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install MongoDB & remove proxy.
-RUN zypper in mongodb-org-server
+RUN zypper in mongodb
     
 # Configuration.
 RUN mkdir -p /data/db /data/configdb \
