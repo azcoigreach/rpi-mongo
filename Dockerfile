@@ -15,7 +15,7 @@ FROM arm64v8/debian
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install MongoDB & remove proxy.
-RUN apt-get install -y mongodb-server
+RUN apt-get install -y mongodb
     
 # Configuration.
 RUN mkdir -p /data/db /data/configdb \
