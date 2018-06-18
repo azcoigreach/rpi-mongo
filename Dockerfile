@@ -19,6 +19,7 @@ RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc-c++ make
 # Build gcc 5.3.0
 RUN mkdir /tmp && \
     cd /tmp && \
+    wget ftp://gcc.gnu.org/pub/gcc/releases/gcc-5.3.0/gcc-5.3.0.tar.bz2
     tar xjf gcc-5.3.0.tar.bz2 && \
     ./contrib/download_prerequisites && \
     mkdir build && \
