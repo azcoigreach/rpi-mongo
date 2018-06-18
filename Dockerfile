@@ -8,7 +8,8 @@
 
 
 # Pull base image.
-FROM arm64v8/opensuse:42.3
+# FROM arm64v8/opensuse:42.3
+FROM arm64v8/debian
 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added.
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
