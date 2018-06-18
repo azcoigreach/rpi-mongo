@@ -14,7 +14,7 @@ FROM arm64v8/opensuse:42.3
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install MongoDB & remove proxy.
-RUN zypper in -y mongodb-server 
+RUN zypper in -y mongodb
     
 # Configuration.
 RUN mkdir -p /data/db /data/configdb \
@@ -33,4 +33,4 @@ EXPOSE 27017
 EXPOSE 28017
 
 # Define default command.
-CMD ["mongod", "--storageEngine=mmapv1"]
+CMD ["mongod"]
