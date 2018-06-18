@@ -8,13 +8,13 @@
 
 
 # Pull base image.
-FROM aarch64/opensuse:42.2
+FROM arm64v8/opensuse:42.3
 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added.
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install MongoDB & remove proxy.
-RUN zypper in mongodb
+RUN zypper in mongodb-server
     
 # Configuration.
 RUN mkdir -p /data/db /data/configdb \
