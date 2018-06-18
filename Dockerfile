@@ -1,20 +1,20 @@
-#
 # azcoigreach/rpi-mongo Dockerfile.
 #
 # https://github.com/azcoigreach/rpi-mongo
 #
+# ARM64[aach64] openSuSE build for Raspberry Pi 3+
+# 
+# Requires openSuSE 64bit base OS.  There is no official 64bit Raspibian as of June 2018.
+
 
 # Pull base image.
-FROM resin/rpi-raspbian:jessie
+FROM aarch64/opensuse:42.2
 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added.
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install MongoDB & remove proxy.
-RUN apt-get update \
-    && apt-get install -y mongodb-server \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /var/lib/mongodb
+RUN zypper mongodb-org-server
     
 # Configuration.
 RUN mkdir -p /data/db /data/configdb \
