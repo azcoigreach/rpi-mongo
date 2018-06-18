@@ -33,4 +33,4 @@ EXPOSE 27017
 EXPOSE 28017
 
 # Define default command.
-CMD ["mongod", "--storageEngine=mmapv1", "--dbpath /data/db"]
+CMD ["mongod", "--storageEngine=mmapv1"]
