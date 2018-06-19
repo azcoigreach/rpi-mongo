@@ -18,7 +18,7 @@ RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc5-c++ gcc5
 
 # Build mongo 3.4.14
 RUN cd /tmp && \
-    git clone https://github.com/mongodb/mongo.git/r3.4.14 && \
+    git clone --branch r3.4.14 https://github.com/mongodb/mongo.git && \
     cd /tmp/mongo && \
     scons --disable-warnings-as-errors \
     --prefix=/tmp/mongo-build/mongo \
