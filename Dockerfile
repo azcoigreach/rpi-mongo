@@ -21,7 +21,7 @@ RUN cd /tmp && \
     git clone --branch r3.4.14 https://github.com/mongodb/mongo.git && \
     cd /tmp/mongo && \
     scons --disable-warnings-as-errors \
-    --prefix=/tmp/mongo-build/mongo \
+    --prefix=/tmp/mongo \
     --js-engine=mozjs mongo mongod MONGO_VERSION=3.4.14
 
 # Configuration.
