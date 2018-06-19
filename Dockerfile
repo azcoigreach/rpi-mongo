@@ -20,7 +20,7 @@ RUN zypper in -y git zlib-devel python awk libffi-devel gcc6-c++ gcc6 wget tar &
     wget http://prdownloads.sourceforge.net/scons/scons-2.5.1.tar.gz && \
     tar xvf scons-2.5.1.tar.gz && \
     cd scons-2.5.1 && \
-    python setup.py install scons
+    python setup.py install
 
 # clone mongo 3.4.14
 RUN cd /tmp && \
