@@ -16,10 +16,12 @@ RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 # Install build prerequisits
 RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc5-c++ gcc5
 
-# Build mongo 3.4.14
+# clone mongo 3.4.14
 RUN cd /tmp && \
-    git clone --branch r3.4.14 https://github.com/mongodb/mongo.git && \
-    cd /tmp/mongo && \
+    git clone --branch r3.4.14 https://github.com/mongodb/mongo.git
+
+# build mongo 3.4.14
+RUN cd /tmp/mongo && \
     scons --disable-warnings-as-errors \
     --prefix=/tmp/mongo \
     --js-engine=mozjs mongo mongod MONGO_VERSION=3.4.14
