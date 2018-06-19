@@ -16,10 +16,13 @@ RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 # Install build prerequisits
 RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc-c++ make wget tar
 
-# Build gcc 5.3.0
+# Download gcc 5.3.0
 RUN cd /tmp && \
     wget ftp://gcc.gnu.org/pub/gcc/releases/gcc-5.3.0/gcc-5.3.0.tar.bz2 && \
-    tar xjf gcc-5.3.0.tar.bz2 && \
+    tar xjf gcc-5.3.0.tar.bz2 
+
+# Build gcc 5.3.0
+RUN cd /tmp/gcc-5.3.0 && \
     ./contrib/download_prerequisites && \
     mkdir build && \
     cd build && \
