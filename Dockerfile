@@ -14,7 +14,7 @@ FROM arm64v8/opensuse:42.3
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install build prerequisits
-RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc-c++ make
+RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc-c++ make wget
 
 # Build gcc 5.3.0
 RUN cd /tmp && \
