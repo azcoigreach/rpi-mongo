@@ -14,7 +14,7 @@ FROM arm64v8/opensuse:42.3
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # # Install build prerequisits
-RUN zypper in -y git zlib-devel python awk libffi-devel gcc6-c++ gcc6 wget && \
+RUN zypper in -y git zlib-devel python awk libffi-devel gcc6-c++ gcc6 wget tar && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 30 --slave /usr/bin/g++ g++ /usr/bin/g++-6 && \
     cd \tmp && \
     wget http://prdownloads.sourceforge.net/scons/scons-2.5.1.tar.gz && \
