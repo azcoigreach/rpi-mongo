@@ -14,24 +14,7 @@ FROM arm64v8/opensuse:42.3
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Install build prerequisits
-RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc-c++ make wget tar
-
-# Download gcc 5.3.0
-RUN cd /tmp && \
-    wget ftp://gcc.gnu.org/pub/gcc/releases/gcc-5.3.0/gcc-5.3.0.tar.bz2 && \
-    tar xjf gcc-5.3.0.tar.bz2 
-
-# Build gcc 5.3.0
-RUN cd /tmp/gcc-5.3.0 && \
-    ./contrib/download_prerequisites && \
-    mkdir build && \
-    cd build && \
-    ../configure --prefix=/opt/gcc-5.3.0 \
-        --enable-languages="c,c++,go" --enable-shared --with-system-zlib \
-        --enable-threads=posix --enable-__cxa_atexit --enable-checking \
-        --enable-gnu-indirect-function --disable-multilib --disable-bootstrap && \
-    make && \
-    make install
+RUN zypper in -y git scons zlib-devel python awk libffi-devel gcc5-c++ gcc5
 
 # Build mongo 3.4.14
 RUN cd /tmp && \
