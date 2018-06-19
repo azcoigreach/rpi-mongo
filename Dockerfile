@@ -24,7 +24,9 @@ RUN cd /tmp && \
 RUN cd /tmp/mongo && \
     scons --disable-warnings-as-errors \
     --prefix=/tmp/mongo \
-    --js-engine=mozjs mongo mongod MONGO_VERSION=3.4.14
+    --js-engine=mozjs \
+    --cc=/usr/bin/gcc5 --cxx=/usr/bin/g++5 \
+    mongo mongod MONGO_VERSION=3.4.14
 
 # Configuration.
 RUN mkdir -p /data/db /data/configdb \
