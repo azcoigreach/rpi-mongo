@@ -32,11 +32,11 @@ RUN cd /tmp/mongo && \
     --prefix=/tmp/mongo \
     --js-engine=mozjs \
     -Q MONGO_VERSION=3.4.14 \
-    mongod mongos
+    mongod
 
 # install mongo 3.4.14
 RUN cd/tmp/mongo && \
-    cp mongo mongod mongos /usr/local/bin/ && \
+    cp mongod /usr/local/bin/ && \
     chown root:root /usr/local/bin/mongo * && \
     chmod 755 /usr/local/bin/mongo * && \
     mkdir /var/log/mongodb && \
