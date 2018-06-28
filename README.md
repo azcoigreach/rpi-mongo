@@ -2,9 +2,12 @@
 
 This repository contains Dockerfile of [MongoDB](http://www.mongodb.org/) for [Raspberry Pi](https://www.raspberrypi.org/) published to the public [Docker Hub](https://hub.docker.com/r/azcoigreach/).
 
+This Build for Raspberry Pi 3 with ARMv8 aarch64 processor.  This is a 64bit build and must be run on a 64bit OS.  At the
+time of this Git, there is no official 64bit Raspbian OS.  I am building this project with [OpenSuSe JeOS LEAP 42.3](https://en.opensuse.org/HCL:Raspberry_Pi3). This is required for Mongodb 3.0 and up.
+
 ### Base Docker Image
 
-* [resin/rpi-raspbian:jessie](https://github.com/resin-io-library/resin-rpi-raspbian)
+* [openSuSE](https://github.com/arm64v8/opensuse)
 
 ### Installation
 
@@ -16,7 +19,7 @@ This repository contains Dockerfile of [MongoDB](http://www.mongodb.org/) for [R
 
 3. Alternatively, you can build an image from Dockerfile (**In you Raspberry Pi**):
 
-    1. `docker build -t="azcoigreach/rpi-mongo" github.com/azcoigreach/rpi-mongo`
+    1. `docker build --cpuset-cpus 0-3 -t="azcoigreach/rpi-mongo" github.com/azcoigreach/rpi-mongo`
 
 ### Usage
 

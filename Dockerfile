@@ -32,11 +32,17 @@ RUN cd /tmp/mongo && \
     --prefix=/tmp/mongo \
     --js-engine=mozjs \
     -Q MONGO_VERSION=3.4.14 \
-    mongo mongod 
+    mongod mongos
 
-# Configuration.
-RUN mkdir -p /data/db /data/configdb \
-    && chown -R mongodb:mongodb /data/db /data/configdb
+# install mongo 3.4.14
+RUN cd/tmp/mongo && \
+    cp mongo mongod mongos /usr/local/bin/ && \
+    chown root:root /usr/local/bin/mongo * && \
+    chmod 755 /usr/local/bin/mongo * && \
+    mkdir /var/log/mongodb && \
+    chown mongodb:mongodb /var/log/mongodb && \
+    mkdir -p /data/db /data/configdb && \
+    chown -R mongodb:mongodb /data/db /data/configdb
 
 # Define mountable directories.
 VOLUME /data/db /data/configdb
