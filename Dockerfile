@@ -31,6 +31,7 @@ RUN cd /tmp/mongo && \
     scons --disable-warnings-as-errors \
     --prefix=/tmp/mongo \
     --js-engine=mozjs \
+    --wiredtiger=on \
     -Q MONGO_VERSION=3.4.14 \
     mongod
 
