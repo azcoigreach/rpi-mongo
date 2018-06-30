@@ -24,7 +24,7 @@ RUN zypper in -y git zlib-devel python awk libffi-devel gcc6-c++ gcc6 wget tar &
 
 # clone mongo 3.4.14
 RUN cd /tmp && \
-    git clone --branch r3.4.14 https://github.com/mongodb/mongo.git
+    git clone --branch 3.6.3 https://github.com/mongodb/mongo.git
 
 # build mongo 3.4.14
 RUN cd /tmp/mongo && \
@@ -32,7 +32,7 @@ RUN cd /tmp/mongo && \
     --prefix=/tmp/mongo \
     --js-engine=mozjs \
     --wiredtiger=on \
-    -Q MONGO_VERSION=3.4.14 \
+    -Q MONGO_VERSION=3.6.3 \
     mongod
 
 # install mongo 3.4.14
